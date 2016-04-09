@@ -76,15 +76,15 @@ main() {
   printf "${BLUE}Using the Oh My Zsh template file and adding it to ~/.zshrc${NORMAL}\n"
   cp "$ZSH/templates/zshrc.zsh-template" "~/.zshrc"
   sed "/^export \"ZSH\"=/ c\\
-  export ZSH=\"$ZSH\"
-  " ~/.zshrc > ~/.zshrc-omztemp
-  mv -f ~/.zshrc-omztemp ~/.zshrc
+  export \"ZSH\"=\"$ZSH\"
+  " "~/.zshrc" > "~/.zshrc-omztemp"
+  mv -f "~/.zshrc-omztemp" "~/.zshrc"
 
   printf "${BLUE}Copying your current PATH and adding it to the end of ~/.zshrc for you.${NORMAL}\n"
   sed "/export PATH=/ c\\
   export PATH=\"$PATH\"
-  " ~/.zshrc > ~/.zshrc-omztemp
-  mv -f ~/.zshrc-omztemp ~/.zshrc
+  " "~/.zshrc" > "~/.zshrc-omztemp"
+  mv -f "~/.zshrc-omztemp" "~/.zshrc"
 
   # If this user's login shell is not already "zsh", attempt to switch.
   TEST_CURRENT_SHELL=$(expr "$SHELL" : '.*/\(.*\)')
@@ -116,7 +116,7 @@ main() {
   echo 'p.p.s. Get stickers and t-shirts at http://shop.planetargon.com.'
   echo ''
   printf "${NORMAL}"
-  env zsh
+  env "zsh"
 }
 
 main

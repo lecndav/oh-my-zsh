@@ -32,7 +32,7 @@ main() {
   unset CHECK_ZSH_INSTALLED
 
   if [ ! -n "$ZSH" ]; then
-    ZSH=~/.oh-my-zsh
+    ZSH="~/.oh-my-zsh"
   fi
 
   if [ -d "$ZSH" ]; then
@@ -53,7 +53,7 @@ main() {
     echo "Error: git is not installed"
     exit 1
   }
-  env git clone --depth=1 https://github.com/robbyrussell/oh-my-zsh.git $ZSH || {
+  env git clone --depth=1 https://github.com/robbyrussell/oh-my-zsh.git "$ZSH" || {
     printf "Error: git clone of oh-my-zsh repo failed\n"
     exit 1
   }
@@ -74,9 +74,9 @@ main() {
   fi
 
   printf "${BLUE}Using the Oh My Zsh template file and adding it to ~/.zshrc${NORMAL}\n"
-  cp $ZSH/templates/zshrc.zsh-template ~/.zshrc
+  cp "$ZSH/templates/zshrc.zsh-template" "~/.zshrc"
   sed "/^export ZSH=/ c\\
-  export ZSH=$ZSH
+  export ZSH=\"$ZSH\"
   " ~/.zshrc > ~/.zshrc-omztemp
   mv -f ~/.zshrc-omztemp ~/.zshrc
 

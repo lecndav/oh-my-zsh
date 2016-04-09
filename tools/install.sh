@@ -116,7 +116,7 @@ main() {
   echo 'p.p.s. Get stickers and t-shirts at http://shop.planetargon.com.'
   echo ''
   printf "${NORMAL}"
-  env "zsh"
+  env zsh
 }
 
 main

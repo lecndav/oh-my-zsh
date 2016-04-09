@@ -32,7 +32,7 @@ main() {
   unset CHECK_ZSH_INSTALLED
 
   if [ ! -n "$ZSH" ]; then
-    ZSH="~/.oh-my-zsh"
+    ZSH="/Volumes/Macintosh HD/Users/David/.oh-my-zsh"
   fi
 
   if [ -d "$ZSH" ]; then
@@ -68,23 +68,23 @@ main() {
   fi
 
   printf "${BLUE}Looking for an existing zsh config...${NORMAL}\n"
-  if [ -f ~/.zshrc ] || [ -h ~/.zshrc ]; then
-    printf "${YELLOW}Found ~/.zshrc.${NORMAL} ${GREEN}Backing up to ~/.zshrc.pre-oh-my-zsh${NORMAL}\n";
-    mv ~/.zshrc ~/.zshrc.pre-oh-my-zsh;
+  if [ -f "/Volumes/Macintosh HD/Users/David/.zshrc" ] || [ -h "/Volumes/Macintosh HD/Users/David/.zshrc" ]; then
+    printf "${YELLOW}Found /Volumes/Macintosh HD/Users/David/.zshrc.${NORMAL} ${GREEN}Backing up to /Volumes/Macintosh HD/Users/David/.zshrc.pre-oh-my-zsh${NORMAL}\n";
+    mv "/Volumes/Macintosh HD/Users/David/.zshrc" "/Volumes/Macintosh HD/Users/David/.zshrc.pre-oh-my-zsh";
   fi
 
   printf "${BLUE}Using the Oh My Zsh template file and adding it to ~/.zshrc${NORMAL}\n"
-  cp "$ZSH/templates/zshrc.zsh-template" "~/.zshrc"
+  cp "$ZSH/templates/zshrc.zsh-template" "/Volumes/Macintosh HD/Users/David/.zshrc"
   sed "/^export ZSH=/ c\\
   export ZSH=\"$ZSH\"
-  " "~/.zshrc" > "~/.zshrc-omztemp"
-  mv -f "~/.zshrc-omztemp" "~/.zshrc"
+  " "/Volumes/Macintosh HD/Users/David/.zshrc" > "/Volumes/Macintosh HD/Users/David/.zshrc-omztemp"
+  mv -f "/Volumes/Macintosh HD/Users/David/.zshrc-omztemp" "/Volumes/Macintosh HD/Users/David/.zshrc"
 
   printf "${BLUE}Copying your current PATH and adding it to the end of ~/.zshrc for you.${NORMAL}\n"
   sed "/export PATH=/ c\\
   export PATH=\"$PATH\"
-  " "~/.zshrc" > "~/.zshrc-omztemp"
-  mv -f "~/.zshrc-omztemp" "~/.zshrc"
+  " "/Volumes/Macintosh HD/Users/David/.zshrc" > "/Volumes/Macintosh HD/Users/David/.zshrc-omztemp"
+  mv -f "/Volumes/Macintosh HD/Users/David/.zshrc-omztemp" "/Volumes/Macintosh HD/Users/David/.zshrc"
 
   # If this user's login shell is not already "zsh", attempt to switch.
   TEST_CURRENT_SHELL=$(expr "$SHELL" : '.*/\(.*\)')
